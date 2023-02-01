@@ -1,0 +1,13 @@
+<div class="form-row">
+    <div class="col-12">
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">
+                <a href="#" (click)="onClickPagina1($event)">Pagina 1</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<pre> {{rowData$ | async | json}}</pre>
+
+<router-outlet></router-outlet>
