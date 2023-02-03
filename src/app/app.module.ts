@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faArrowAltCircleLeft, faAddressBook, faArrowAltCircleRight, faCalendarAlt, faClone, faCircle, faCommentDots, faCopyright, faCreditCard, faEdit, faEnvelope, faEye, faEyeSlash, faFile, faFileExcel, faFilePdf, faImage, faListAlt, faPaperPlane, faStickyNote, faTrashAlt, faUser } from '@fortawesome/free-regular-svg-icons';
-import { faArchive, faAt, faBan, faBarcode, faBookReader, faCamera, faChartLine, faCheck, faChevronUp, faChevronDown, faChevronRight, faCircleNotch, faCog, faCompressAlt, faDatabase, faDoorClosed, faDownload, faDharmachakra, faEllipsisV, faEuroSign, faExchangeAlt, faExpandAlt, faFileDownload, faSave, faFilter, faGhost, faHome, faInfo, faLevelUpAlt, faListOl, faMinus, faNetworkWired, faPen, faPencilRuler, faShoppingBasket, faPhone, faPlaneArrival, faPlus, faPowerOff, faPrint, faShippingFast, faSignature, faTable, faTimes, faTruck, faTruckLoading, faUndo, faUniversity, faUpload, faUserLock, faUserPlus, faUsers, faUserSecret, faUserTag, faUserTie, faUtensils, faUsersCog, faWarehouse, faWifi, faWrench, faMedkit, faServer, faDesktop, faTerminal } from '@fortawesome/free-solid-svg-icons';
+import { faArchive, faAt, faBan, faBarcode, faBookReader, faCamera, faChartLine, faCheck, faChevronUp, faChevronDown, faChevronRight, faCircleNotch, faCog, faCompressAlt, faDatabase, faDoorClosed, faDownload, faDharmachakra, faEllipsisV, faEuroSign, faExchangeAlt, faExpandAlt, faFileDownload, faSave, faFilter, faGhost, faHome, faInfo, faLevelUpAlt, faListOl, faMinus, faNetworkWired, faPen, faPencilRuler, faShoppingBasket, faPhone, faPlaneArrival, faPlus, faPowerOff, faPrint, faShippingFast, faSignature, faTable, faTimes, faTruck, faTruckLoading, faUndo, faUniversity, faUpload, faUserLock, faUserPlus, faUsers, faUserSecret, faUserTag, faUserTie, faUtensils, faUsersCog, faWarehouse, faWifi, faWrench, faMedkit, faServer, faDesktop, faTerminal, faSpider } from '@fortawesome/free-solid-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +45,8 @@ export class AppModule {
       , faCamera
       , faChartLine
       , faCheck
+      , faSpider
+      , faServer
       , faChevronUp
       , faChevronDown
       , faChevronRight
@@ -120,4 +122,4 @@ export class AppModule {
       , faMedkit
     )
   }
- }
+}
