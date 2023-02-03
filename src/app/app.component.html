@@ -6,7 +6,7 @@
       <div class="form-row">
         <div class="col-12 d-flex justify-content-between" >
           <span *ngIf="(rowData$ | async)">  </span>
-          <div class="col" *ngFor="let item of (rowData$ | async)!|buttonfilter:level " >
+          <div class="col" *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id " >
 
             <app-button-helpdesk [Label]="item.Label" [IcoName]="['fas',item.Ico]" (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
 

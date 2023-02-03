@@ -13,6 +13,9 @@ export class AppComponent {
   title = 'prova';
 
   level:number=0;
+  idParent:number|null|undefined=null;
+  id:number|null|undefined=null;
+
   disabledSave=true;
   showBtnSave=true;
   showBtnReset=true;
@@ -25,8 +28,15 @@ export class AppComponent {
   }
 
   onClickHandler(e:Event, item:HelpDeskModel){
-    console.log(item)
+    if (item.Ico==='undo'){
+      this.level = item.Level-1;
+      this.idParent=null;
+      this.id=item.IdParent;
+      return;
+    }
     this.level++;
+    this.idParent = item.Id;
+    this.id = null;
   }
 
   btnSalvaOnClick(e: Event) {
@@ -37,12 +47,13 @@ export class AppComponent {
 
   btnAnnullaOnClick(e: Event) {
     e.preventDefault();
-    console.log('btnAnnullaOnClick')
   }
 
   btnResetOnClick(e: Event) {
     e.preventDefault();
     this.level=0;
+    this.idParent=null;
+    this.id=null;
   }
 
 }

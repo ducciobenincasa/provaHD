@@ -42,7 +42,6 @@ export class ButtonHelpdeskComponent implements OnInit {
   }
 
   onClickHandler(e:any){
-    console.log(e)
     this.onCliCkButton.emit(e);
   }
 }

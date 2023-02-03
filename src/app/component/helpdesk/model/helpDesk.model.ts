@@ -1,8 +1,8 @@
-import { IconName, IconProp } from '@fortawesome/fontawesome-svg-core';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
 export interface HelpDeskModel {
   Id: number;
   Label: string;
-  IdParent: number;
+  IdParent?: number;
   Level: number;
   Ico: IconName;
 }
