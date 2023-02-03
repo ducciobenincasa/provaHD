@@ -2,10 +2,11 @@
     <div class="card-header">
         <span> HelpDesk</span>
     </div>
-    <div class="card-body flex-fill">
+    <div class="card-body flex-fill fill">
         <div class="col-12">
             <div class="form-row ">
-                <div class="col-3" *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id ">
+                <div class="col-6 col-lg-3 col-xl-3 mb-3"
+                    *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id ">
 
                     <app-button-helpdesk [Label]="item.Label" [IcoName]="['fas',item.Ico]"
                         (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
