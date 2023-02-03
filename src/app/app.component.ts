@@ -11,13 +11,10 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'prova';
-  rowData$ : Observable<HelpDeskModel[] | null> | undefined;
+  rowData$: Observable<HelpDeskModel[] | null> | undefined;
 
-  constructor(private router:Router, private helpDeskService:HelpdeskService){
+  constructor(private router: Router, private helpDeskService: HelpdeskService) {
   }
-  onClickPagina1(e:any){
-    e.preventDefault();
-    this.rowData$ = this.helpDeskService.HelpDeskCollection({} as HelpDeskSearchModel)
-  }
+
 
 }
