@@ -1,14 +1,17 @@
+
 <div class="card">
-    <div class="card-header">
+
+  <div class="card-header">
         <span> HelpDesk</span>
     </div>
+
     <div class="card-body card-filly">
       <div class="form-row">
-        <div class="col-12 d-flex justify-content-between" >
-          <span *ngIf="(rowData$ | async)">  </span>
+        <div class="col-12 d-flex justify-content-between   " >
+
           <div class="col" *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id " >
 
-            <app-button-helpdesk [Label]="item.Label" [IcoName]="['fas',item.Ico]" (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
+            <app-button-helpdesk class="col-4" [Label]="item.Label" [IcoName]="['fas',item.Ico]" (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
 
           </div>
         </div>
