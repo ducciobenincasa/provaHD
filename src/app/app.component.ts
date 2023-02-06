@@ -11,7 +11,7 @@ import { HelpdeskService } from './component/helpdesk/service/helpdesk.service';
 })
 export class AppComponent {
   title = 'prova';
-
+  b: HelpDeskModel[] = [] ;
   level:number=0;
   idParent:number|null|undefined=null;
   id:number|null|undefined=null;
@@ -28,15 +28,24 @@ export class AppComponent {
   }
 
   onClickHandler(e:Event, item:HelpDeskModel){
+
     if (item.Ico==='undo'){
       this.level = item.Level-1;
       this.idParent=null;
       this.id=item.IdParent;
+      this.b = this.b.slice(0,this.b.length-1)
       return;
     }
-    this.level++;
+    this.level=item.Level+1;
     this.idParent = item.Id;
     this.id = null;
+
+    this.b = [...this.b, item]
+  }
+
+  onClickBreadItem(e:Event, item:HelpDeskModel){
+    console.log('1',this.b)
+    this.b=this.b.slice(0, this.b.indexOf(item))
   }
 
   btnSalvaOnClick(e: Event) {
