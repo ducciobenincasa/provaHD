@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost/etruriaservice/etruriapi/',
+  apiUrl: 'http://10.0.127.12/etruriaservice/etruriapi/',
   fieldImageUrl: 'http://localhost/EtruriaFieldImage/',
   fieldDataSheetUrl: 'http://localhost/EtruriaFieldDataSheet/',
   chatUrl: 'http://10.0.127.12:9048/chathub',
