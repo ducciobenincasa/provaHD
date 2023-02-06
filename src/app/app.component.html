@@ -1,35 +1,34 @@
-
 <div class="card">
-
   <div class="card-header">
-        <span> HelpDesk</span>
-    </div>
-    <div class="card-body card-filly">
-      <div class="form-row">
-        <div class="col-12 d-flex justify-content-between" >
-          <span *ngIf="(rowData$ | async)">  </span>
-          <div class="col" *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id " >
+      <span> HelpDesk</span>
+  </div>
+  <div class="card-body flex-fill fill">
+      <div class="col-12">
+          <div class="form-row ">
+              <div class="col-6 col-lg-3 col-xl-3 mb-3"
+                  *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id ">
 
-            <app-button-helpdesk [Label]="item.Label" [IcoName]="['fas',item.Ico]" (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
+                  <app-button-helpdesk [Label]="item.Label" [IcoName]="['fas',item.Ico]"
+                      (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
 
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card-footer">
-        <div></div>
-        <div class="d-flex justify-content-end" style="gap:0.25rem">
-            <button type="submit" class="btn btn-warning btn-sm " (click)="btnResetOnClick($event)"
-                *ngIf="showBtnReset">Reset</button>
-            <button type="submit" class="btn btn-secondary btn-sm " (click)="btnAnnullaOnClick($event)">Annulla</button>
-            <button [disabled]="disabledSave" type="submit" class="btn btn-primary btn-sm" *ngIf="showBtnSave"
-                (click)="btnSalvaOnClick($event)">Salva</button>
-        </div>
-    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="card-footer">
+      <div></div>
+      <div class="d-flex justify-content-end " style="gap:0.25rem">
+          <button type="submit" class="btn btn-warning btn-sm mr-1" (click)="btnResetOnClick($event)"
+              *ngIf="showBtnReset">Reset</button>
+          <button type="submit" class="btn btn-secondary btn-sm mr-1" (click)="btnAnnullaOnClick($event)">Annulla</button>
+          <button [disabled]="disabledSave" type="submit" class="btn btn-primary btn-sm mr-1" *ngIf="showBtnSave"
+              (click)="btnSalvaOnClick($event)">Salva</button>
+      </div>
+  </div>
 </div>
 
 
-<pre> {{rowData$ | async | json}}</pre>
+<!-- <pre> {{rowData$ | async | json}}</pre> -->
 
 <!-- <pre>{{rowdatalevel$|async|json}} </pre> -->
 

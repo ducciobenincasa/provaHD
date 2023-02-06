@@ -13,7 +13,7 @@ export class ButtonfilterPipe implements PipeTransform {
     // const filterIdParent = (e: HelpDeskModel): boolean =>  e.IdParent===idParent;
     const filterIdParent = function(e: HelpDeskModel) { return idParent ? e.IdParent===idParent:true;}
     // const filterId = (e: HelpDeskModel): boolean =>  e.Id===id;
-    const filterId = function(e: HelpDeskModel) { return id? e.Id===id:true;}
+    const filterId = function(e: HelpDeskModel) { return id ? e.Id===id:true;}
 
     const filterHelpDesk = (e: any): boolean => filterLevel(e) && filterIdParent(e) && filterId(e);
     // if (!value) return null;
