@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonHelpdeskComponent } from './component/buttons/button-helpdesk/button-helpdesk.component';
 import { ButtonfilterPipe } from './buttonfilter.pipe';
+import { ButtonAnswerComponent } from './component/buttons/button-answer/button-answer.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ButtonfilterPipe } from './buttonfilter.pipe';
     AppComponent,
     ButtonHelpdeskComponent,
     ButtonfilterPipe,
+    ButtonAnswerComponent,
 
   ],
   imports: [
