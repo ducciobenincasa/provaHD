@@ -7,7 +7,8 @@
   <div class="card-body flex-fill fill">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <a href="#" class="breadcrumb-item">Home</a>
+        <a href="#" class="breadcrumb-item" (click)="btnResetOnClick($event)">Home</a>
+
         <li *ngFor="let item of b; let i=index" class="breadcrumb-item" [ngClass]="{'active': i===b.length-1}">
           <ng-container [ngSwitch]="i<b.length-1">
             <span *ngSwitchCase="false">{{item.Label}}</span>

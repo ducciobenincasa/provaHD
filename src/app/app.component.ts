@@ -63,6 +63,7 @@ export class AppComponent {
     this.level=0;
     this.idParent=null;
     this.id=null;
+    this.b=[];
   }
 
 }
