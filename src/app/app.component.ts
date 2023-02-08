@@ -13,49 +13,30 @@ import { HelpdeskService } from './component/helpdesk/service/helpdesk.service';
 export class AppComponent {
 
   title = 'prova';
-  b: HelpDeskModel[] = [] ;
-  level:number=0;
-  idParent:number|null|undefined=null;
-  id:number|null|undefined=null;
+  b: HelpDeskModel[] = [];
 
-  disabledSave=false;
-  showBtnSave=true;
-  showBtnReset=true;
-  resetClicked=false;
+  disabledSave = false;
+  showBtnSave = true;
+  showBtnReset = true;
+  resetClicked = false;
 
-rowData$ : Observable<HelpDeskModel[]|undefined>=this.helpDeskService.HelpDeskCollection({} as HelpDeskSearchModel);
+  rowData$: Observable<HelpDeskModel[] | undefined> = this.helpDeskService.HelpDeskCollection({} as HelpDeskSearchModel);
 
-frmOffertHeaderDetail = this.fb.group({
-  DetailCollection: [''],
-})
+  frmOffertHeaderDetail = this.fb.group({
+    control: [''],
+  })
 
 
 
 
   //rowdatalevel$:Observable<HelpDeskModel[]>  = this.rowData$?.pipe(map(h=> h?.filter(h=>h.Level===this.level)))
 
-  constructor(private router:Router, private helpDeskService:HelpdeskService, private fb:FormBuilder){
+  constructor(private router: Router, private helpDeskService: HelpdeskService, private fb: FormBuilder) {
   }
 
-  // onClickHandler(e:Event, item:HelpDeskModel){
 
-  //   if (item.Ico==='undo'){
-  //     this.level = item.Level-1;
-  //     this.idParent=null;
-  //     this.id=item.IdParent;
-  //     this.b = this.b.slice(0,this.b.length-1)
-  //     return;
-  //   }
-  //   this.level=item.Level+1;
-  //   this.idParent = item.Id;
-  //   this.id = null;
-
-  //   this.b = [...this.b, item]
-  // }
-
-  onClickBreadItem(e:Event, item:HelpDeskModel){
-    console.log('1',this.b)
-    this.b=this.b.slice(0, this.b.indexOf(item))
+  onClickBreadItem(e: Event, item: HelpDeskModel) {
+    this.frmOffertHeaderDetail.controls.control.setValue(item);
   }
 
   btnSalvaOnClick(e: Event) {
@@ -71,14 +52,13 @@ frmOffertHeaderDetail = this.fb.group({
   btnResetOnClick(e: Event) {
     e.preventDefault();
     this.resetClicked = true;
-    // this.level=0;
-    // this.idParent=null;
-    // this.id=null;
-    // this.b=[];
   }
 
-  onClickHandler(e:any, item:any){
+  onClickHandler(e: any, item: any) {
     console.log(e);
   }
 
+  onClickBtnHd(e: HelpDeskModel[]) {
+    this.b = [...e];
+  }
 }
