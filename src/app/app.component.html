@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [formGroup]="frmOffertHeaderDetail">
   <div class="card-header d-flex justify-content-between">
     <span class="col-2"> HelpDesk</span>
     <span>
@@ -19,22 +19,26 @@
       </ol>
     </nav>
 
-    <div class="col-12">
-      <div class="form-row ">
-        <div class="col-6 col-lg-3 col-xl-3 mb-3" [ngClass]="{'col-12 col-lg-6 col-xl-12': item.Ico.trim()===''}"
+    <app-button-helpdesk [resetButtonClicked]="resetClicked" [rowData]="(rowData$|async)!"></app-button-helpdesk>
+    <!-- <div class="col-12" [formGroup]="frmLabel">
+      <div class="form-row "> -->
+      <!-- <div class="col-12"> -->
+
+      <!-- </div> -->
+        <!-- <div class="col-6 col-lg-3 col-xl-3 mb-3" [ngClass]="{'col-12 col-lg-6 col-xl-12': item.Ico.trim()===''}"
           *ngFor="let item of (rowData$ | async)!|buttonfilter:level:idParent:id; let i=index ">
           <ng-container [ngSwitch]="item.Ico.trim()===''">
             <span *ngSwitchCase="true">
-              <app-button-answer class="col-6" [Label]="item.Label" [CheckName]="i.toString()"></app-button-answer>
+              <app-button-answer class="col-6" formControlName="Check" [Label]="item.Label" [CheckName]="i.toString()"></app-button-answer>
             </span>
             <span *ngSwitchDefault>
               <app-button-helpdesk [Label]="item.Label" [IcoName]="['fas',item.Ico]"
               (onCliCkButton)="onClickHandler($event, item)"> </app-button-helpdesk>
             </span>
           </ng-container>
-        </div>
-      </div>
-    </div>
+        </div> -->
+      <!-- </div>
+    </div> -->
   </div>
   <div class="card-footer">
     <div></div>

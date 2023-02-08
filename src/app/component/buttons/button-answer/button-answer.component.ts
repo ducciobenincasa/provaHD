@@ -1,11 +1,10 @@
-import { faDoorClosed } from '@fortawesome/free-solid-svg-icons';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { ChangeDetectorRef, Component, forwardRef, Injector, Input, OnInit } from '@angular/core';
+import { ControlValueAccessor,  FormControl, NgControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-button-answer',
   template: `
-    <div class="can-toggle d-flex " (click)="onClickHandler($event)" >
+    <div class="can-toggle d-flex ">
 
       <input type="checkbox" [formControl]="frmInputCheckbox" [id]="CheckName">{{Label}}
 <label [attr.for]="CheckName" >
@@ -234,20 +233,55 @@ import { FormBuilder, FormControl } from '@angular/forms';
         );
       }
     }
-    `]
+    `],
+    providers: [
+      {
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => ButtonAnswerComponent),
+        multi: true
+      },
+    ],
 })
-export class ButtonAnswerComponent implements OnInit {
+export class ButtonAnswerComponent implements OnInit, ControlValueAccessor {
   @Input() Label:string|undefined=''
   @Input() CheckName:string|undefined='id'
 
+  ngControl: NgControl | undefined;
+
+  get value(): boolean {
+    return this.frmInputCheckbox.value();
+  }
+  set value(d: boolean) {
+      this.frmInputCheckbox.setValue(d);
+  }
+
+  onTouched: any = () => { };
+  onChanged: any = () => { };
+
+  frmInputCheckbox= new FormControl(false)
 
 
-    frmInputCheckbox= new FormControl(false)
+  constructor(
+    private inj: Injector,
+    private cdref: ChangeDetectorRef,
+    ) { }
 
+  writeValue(value: boolean): void {
 
-  constructor(private fb:FormBuilder) { }
+      this.value = value;
+  }
+  registerOnChange(fn: any): void {
+    this.onChanged = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+  // setDisabledState?(isDisabled: boolean): void {
+  //   throw new Error('Method not implemented.');
+  // }
 
   ngOnInit(): void {
+    this.ngControl = this.inj.get(NgControl);
   }
 
   onClickHandler(e:any){
